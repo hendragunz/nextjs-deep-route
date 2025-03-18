@@ -1,6 +1,5 @@
-import Link from "next/link";
-import NavLink from "./nav-link";
-;
+import Link from "next/link"
+import NavLink from "./nav-link"
 
 export default function MainHeader() {
   return (
@@ -21,5 +20,5 @@ export default function MainHeader() {
         </ul>
       </nav>
     </header>
-  );
+  )
 }
