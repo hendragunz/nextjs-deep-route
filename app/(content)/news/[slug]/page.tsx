@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 
 export default function NewsDetailPage({ params }: {
-  params: { slug: string }
+  params: any
 }) {
   const newsSlug = params.slug
   const newsItem = DUMMY_NEWS.find(newsItem => newsItem.slug === newsSlug)

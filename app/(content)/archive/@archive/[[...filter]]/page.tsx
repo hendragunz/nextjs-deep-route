@@ -3,12 +3,13 @@ import NewsList from '@/components/news-list'
 import Link from 'next/link'
 import { getNewsForYear, getAvailableNewsYears, getAvailableNewsMonths, getNewsForYearAndMonth } from '@/lib/news'
 
-export default function FilteredNewsPage({ params }) {
-  const filter: Array<string> = params.filter
+export default function FilteredNewsPage({ params }: {
+  params: any
+}) {
+  const filter: string[] = params.filter
   const selectedYear: string = filter?.[0]
   const selectedMonth: string = filter?.[1]
 
-  console.log(filter)
   let news: Array<any> = [];
   let links: Array<string> = getAvailableNewsYears()
 
@@ -28,9 +29,16 @@ export default function FilteredNewsPage({ params }) {
     newsContent = <NewsList news={news} />
   }
 
+  let availableNewYears: number[] = getAvailableNewsYears()
+  let availableNewsMonths: number[] = []
+
+  if (selectedMonth) {
+    availableNewsMonths = getAvailableNewsMonths(selectedYear)
+  }
+
   if (
-    (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) ||
-    (selectedMonth && !getAvailableNewsMonths(+selectedYear).includes(+selectedMonth))
+    (selectedYear && !availableNewYears.includes(+selectedYear)) ||
+    (selectedMonth && !availableNewsMonths.includes(+selectedMonth))
   ) {
     throw new Error('Invalid filter.')
   }

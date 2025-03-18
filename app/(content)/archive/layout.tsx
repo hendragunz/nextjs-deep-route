@@ -1,4 +1,7 @@
-export default function ArchiveLayout({archive, latest}) {
+export default function ArchiveLayout({archive, latest}: {
+  archive: any,
+  latest: any
+}) {
   return (
     <div>
       <h1>News Archive</h1>
