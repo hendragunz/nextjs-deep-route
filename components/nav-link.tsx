@@ -14,7 +14,7 @@ export default function NavLink({ href, children }: Readonly<{
       href={href}
       className={path.startsWith(href) ? "active" : undefined}
     >
-      News
+      {children}
     </Link>
   )
 }

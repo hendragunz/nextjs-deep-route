@@ -12,8 +12,6 @@ export default function NewsDetailPage({ params }: {
     notFound()
   }
 
-  console.log("here")
-
   return (
     <article className="news-article">
       <header>
